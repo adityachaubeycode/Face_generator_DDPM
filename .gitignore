@@ -1,0 +1,102 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# =========================
+# Virtual environments
+# =========================
+.venv/
+venv/
+env/
+ENV/
+.env
+.env.*
+
+# =========================
+# Jupyter Notebook
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Lightning AI / Studio
+# =========================
+.lightning/
+lightning_logs/
+runs/
+logs/
+
+# =========================
+# Machine Learning outputs
+# =========================
+checkpoints/
+checkpoint/
+weights/
+models/
+outputs/
+results/
+artifacts/
+
+# Model files
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+*.bin
+
+# =========================
+# Datasets
+# =========================
+data/
+dataset/
+datasets/
+
+# Compressed datasets
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz
+
+# =========================
+# Experiment tracking
+# =========================
+wandb/
+mlruns/
+tensorboard/
+*.tfevents.*
+
+# =========================
+# Python packaging
+# =========================
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# =========================
+# IDE / Editors
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Secrets
+# =========================
+*.pem
+*.key
+*.secret
+secrets/
