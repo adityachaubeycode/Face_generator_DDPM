@@ -25,6 +25,7 @@ ENV/
 # Lightning AI / Studio
 # =========================
 .lightning/
+.lightning_studio/
 lightning_logs/
 runs/
 logs/
