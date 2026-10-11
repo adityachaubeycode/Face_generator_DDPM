@@ -3,18 +3,18 @@ import os
 import torchvision
 import torch.optim
 import torch.nn as nn
-from torchvision.transforms import  transforms
+from torchvision.transforms import  v2
 import lightning as L
 from lightning.pytorch.callbacks import ModelCheckpoint
 from timeit import default_timer as timer 
 from model import Unet
 from dataloader import get_loaders
 
-data_transform = transforms.Compose([
-    transforms.Resize((128, 128)),
-    transforms.CenterCrop(128),
-    transforms.ToTensor(),
-    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
+data_transform = v2.Compose([
+    v2.Resize((128, 128)),
+    v2.CenterCrop(128),
+    v2.ToTensor(),
+    v2.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 ])
 
 def q_sample(x0, t, alphas_cumprod, noise=None):
@@ -26,7 +26,7 @@ def q_sample(x0, t, alphas_cumprod, noise=None):
     
     return sqrt_alphas_cumprod * x0 + sqrt_one_minus_alphas_cumprod * noise
 
-data_path = 'cd'
+data_path = '/teamspace/studios/this_studio/Face_generator_DDPM/datasets/img_align_celeba'
 dataset , dataloader = get_loaders(data_path=data_path, batch_size=32,  data_transform=data_transform)
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -69,7 +69,7 @@ checkpoint_callback = ModelCheckpoint(
 trainer = L.Trainer(max_epochs=1,
                     accelerator='gpu',
                     devices=1,
-                    precision='16-mixed',
+                    precision='bf16-mixed',
                     callbacks=[checkpoint_callback] )
 
 start = timer()
